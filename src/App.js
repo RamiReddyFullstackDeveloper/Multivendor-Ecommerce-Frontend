@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import publicRoutes from "./router/routes/publicRoutes";
+import MyRouter from "./router/MyRouter";
+import { getRoutes } from "./router/routes"; //this is from router/routes/index.js
 
 function App() {
+  const [allRoutes, setAllRoutes] = useState([...publicRoutes]);
+  useEffect(() => {
+    const routes = getRoutes();
+    console.log(routes);
+    setAllRoutes([...allRoutes, routes]);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <h1 className="flex  text-3xl font-bold underline items-center justify-center">
+        Welcome to Ecommerce Site!
+      </h1> */}
+      <MyRouter allRoutes={allRoutes} />
     </div>
   );
 }

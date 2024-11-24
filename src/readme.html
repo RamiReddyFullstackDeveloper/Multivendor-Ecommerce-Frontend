@@ -1,0 +1,80 @@
+Project Name: Ecommerce
+
+Step1: Develop Admin Page
+Step2: npx create-react-app dashboard
+Step3: install all necessary packages
+      npm install
+	  apexcharts
+	  react-apexcharts 
+	  axios
+	  jwt-decode
+	  moment
+	  react-hot-toast
+	  react-icons
+	  @reduxjs/toolkit
+	  react-redux
+	  react-router-dom
+	  react-spinners     //this package for loader bubbles when we click on the adminLogin button we are keeping loader for that this package need 
+	  react-window
+	  redux-thunk
+	  socket.io-client
+Step4: Install Tailwind CSS for rect //for more learn at https://tailwindcss.com/docs/guides/create-react-app
+     install it
+	 npm install -D tailwindcss
+	 npx tailwindcss init //it create new file tailwind.config.js
+     open tailwind.config.js and replace with below content,  the below content will apply for all files present in application.
+                /** @type {import('tailwindcss').Config} */
+            module.exports = {
+            content: [
+                "./src/**/*.{js,jsx,ts,tsx}",
+            ],
+            theme: {
+                extend: {},
+            },
+            plugins: [],
+            }
+	 go to src\index.css and remove all and add below lines
+	 @tailwind base;
+	 @tailwind components;
+	 @tailwind utilities;
+	 > now go to App.js file and below line to mke sure whether tailwind css working.
+	 function App(){
+	 return (<div> 
+	 <h1 className="text-3xl font-bold underline"> Helloworld </h1>
+	 </div>);
+	 }
+Step5: Ecommerce Project Setup
+     src/api/api.js
+	 src/Layout/MainLayout.jsx, Header.jsx, Sidebar.jsx
+	 src/Navigation/allNav.js, index.js
+	 src/router/routes/adminRoutes.js, privateRoute.js, publicRoutes.js, index.js, ProtectRoute.jxs, sellerRoutes.js, 
+	 src/router/MyRouter.jsx
+	 src/store/Reducers
+	 src/store/index.js, 
+	 src/utils
+	 src/views/auth/Login.jsx, Register.jsx
+	 src/views/pages
+	 
+	 Router.jsx
+	 ----------
+	 function MyRouter({allRoutes}){
+	   const routes = useRoutes(allRoutes);
+	 }
+	 
+Class2: Teach about State , don't teach about state at the time of Page design //for this refer login or register how we used the state
+Class3:  Redux toolkit  setup 
+         
+         1> Create src/view/auth/AdminLogin.js Page
+		   and add root in src/router/routes/publicRoutes.js
+	 		for EASY SHOP image we downloaded the image from this couse and we need tokeep them under public folder /public/images/
+		 2> install redux toolkit for this run this cmd // npm install @reduxjs/toolkit
+		    Create src/store/auth/authReducer.js
+		           src/store/index.js, rootReducer.js
+		 3> Install Redux Devtools for chrome/mogilla etc 
+		 4> warap it <Provider store={store}/></App> </Provider> //this provider comes from redux in src/index.js
+		 5> Add <Toster tosterptions = {{}}></Toster> src/index.js
+		 4> we are using react-hot-toast for displaying the  messages either success or failure
+
+		   
+Class 4: set up new project for middleware i.e Express js 
+        //for this class refer the backend api folder readme.txt 
